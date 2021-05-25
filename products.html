@@ -55,7 +55,7 @@
                 <button @click="openModal(item)" type="button" class="btn btn-primary btn-sm" data-action="edit">
                   編輯
                 </button>
-                <button @click="openModal(item)" type="button" class="btn btn-sm btn-danger move" data-action="remove"> 刪除 </button>
+                <button @click="openModal(item)" type="button" class="btn btn-sm btn-danger" data-action="remove"> 刪除 </button>
               </div>
             </td>
           </tr>
@@ -92,17 +92,18 @@
                     </div>
                     <img class="img-fluid" :src="item" >
                   </div>
+                  <div v-if="!tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]">
+                    <button @click="tempProduct.imagesUrl.push('')" class="btn btn-outline-primary btn-sm d-block w-100">
+                      新增圖片
+                    </button>
+                  </div>
+                  <div v-else>
+                    <button @click="tempProduct.imagesUrl.pop()" class="btn btn-outline-danger btn-sm d-block w-100">
+                      刪除圖片
+                    </button>
+                  </div>
                 </div>
-                <div v-if="!tempProduct.imagesUrl.length || tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]">
-                  <button @click="tempProduct.imagesUrl.push('')" class="btn btn-outline-primary btn-sm d-block w-100">
-                    新增圖片
-                  </button>
-                </div>
-                <div v-else>
-                  <button @click="tempProduct.imagesUrl.pop()" class="btn btn-outline-danger btn-sm d-block w-100">
-                    刪除圖片
-                  </button>
-                </div>
+                
               </div>
               <div class="col-sm-8">
                 <div class="form-group">
