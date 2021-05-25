@@ -75,6 +75,9 @@ const app = {
       
         case 'edit':
           this.tempProduct = {...item};
+          if (!this.tempProduct.imagesUrl) {
+            this.tempProduct.imagesUrl = [];
+          }
           productModal.show();
           break;
 
