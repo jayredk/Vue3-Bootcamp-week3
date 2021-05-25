@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100%;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.bg {
+  background: center/cover url('../img/alessandro-viaro-fwWj5Y1IgQg-unsplash.jpg') no-repeat;
+}
