@@ -25,7 +25,7 @@ const app = {
           if (res.data.success) {
             this.product = res.data.products;
           } else {
-            console.log(res.data.message);
+            alert(res.data.message);
           }
         })
         .catch((err) => console.log(err));
@@ -47,11 +47,10 @@ const app = {
         .then((res) => {
           this.loading = false;
           if (res.data.success) {
-            console.log(res);
             productModal.hide();
             this.getProduct();
           } else {
-            console.log(res.data.message);
+            alert(res.data.message);
           }
         })
         .catch((err) => console.log(err));
@@ -66,7 +65,7 @@ const app = {
             delProductModal.hide();
             this.getProduct();
           } else {
-            console.log(res.data.message);
+            alert(res.data.message);
           }
         })
         .catch((err) => console.log(err));
