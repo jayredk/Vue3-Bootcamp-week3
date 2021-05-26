@@ -8,6 +8,7 @@ const app = {
     return {
       apiUrl: 'https://vue3-course-api.hexschool.io/',
       apiPath: 'jayredk-hex',
+      loading: false,
       product: [],
       tempProduct: {
         imagesUrl:[]
@@ -17,8 +18,10 @@ const app = {
   },
   methods: {
     getProduct() {
+      this.loading = true;
       axios.get(`${this.apiUrl}api/${this.apiPath}/admin/products`)
         .then((res) => {
+          this.loading = false;
           if (res.data.success) {
             this.product = res.data.products;
           } else {
@@ -33,7 +36,8 @@ const app = {
       let uploadData = {
         data: {...this.tempProduct}
       };
-      
+      this.loading = true;
+
       if (this.action === 'edit') {
         url = `${this.apiUrl}api/${this.apiPath}/admin/product/${this.tempProduct.id}`;
         method = 'put';
@@ -41,6 +45,7 @@ const app = {
 
       axios[method](url, uploadData)
         .then((res) => {
+          this.loading = false;
           if (res.data.success) {
             console.log(res);
             productModal.hide();
@@ -53,8 +58,10 @@ const app = {
       
     },
     deleteProduct() {
+      this.loading = true;
       axios.delete(`${this.apiUrl}api/${this.apiPath}/admin/product/${this.tempProduct.id}`)
         .then((res) => {
+          this.loading = false;
           if (res.data.success) {
             delProductModal.hide();
             this.getProduct();

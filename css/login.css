@@ -17,6 +17,24 @@ body {
   margin: auto;
 }
 
+.loading {
+  background: rgba(255, 255, 255, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+}
+
 .bg {
-  background: center/cover url('../img/alessandro-viaro-fwWj5Y1IgQg-unsplash.jpg') no-repeat;
+  background: center/cover url('../img/alex_rainer-BjIwWQSS8X8-unsplash.jpg') no-repeat;
+}
+
+.container .row {
+  width: 500px;
+}
+
+.container .logo {
+  width: 350px;
 }

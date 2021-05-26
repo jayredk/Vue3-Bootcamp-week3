@@ -7,15 +7,18 @@ createApp({
       user: {
         username: '',
         password: ''
-      }
+      },
+      loading: false
     }
   },
   methods: {
     login() {
+      this.loading = true;
       axios.post(`${this.apiUrl}admin/signin`, this.user)
         .then((res) => {
+          this.loading = false;
           if (res.data.success) {
-            let {token, expired} = res.data;
+            const {token, expired} = res.data;
             document.cookie = `hextoken=${token}; expires=${new Date(expired)}`;
             window.location = 'products.html';
           } else {
