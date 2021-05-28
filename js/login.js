@@ -22,7 +22,7 @@ createApp({
             document.cookie = `hextoken=${token}; expires=${new Date(expired)}`;
             window.location = 'products.html';
           } else {
-            failMsg.classList.toggle('invisible');
+            failMsg.classList.remove('invisible');
             this.emailInput = '';
             this.passwordInput = '';
           }
